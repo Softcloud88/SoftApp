@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 
@@ -7,12 +7,12 @@ android {
     buildToolsVersion rootProject.ext.androidBuildToolsVersion
 
     defaultConfig {
-        applicationId "com.softcloud.softapp"
         minSdkVersion rootProject.ext.androidMinSdkVersion
         targetSdkVersion rootProject.ext.androidTargetSdkVersion
         versionCode rootProject.ext.releaseVersionCode
         versionName rootProject.ext.releaseVersionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        consumerProguardFiles 'proguard-rules.pro'
     }
 
     compileOptions {
@@ -29,6 +29,7 @@ android {
 }
 
 dependencies {
+
     def baseDependencies = rootProject.ext.baseDependencies
     def aptDependencies = rootProject.ext.aptDependencies
 
@@ -41,6 +42,33 @@ dependencies {
     compile(baseDependencies.rxAndroid2) {
         exclude module: 'rxjava2'
     }
+    compile baseDependencies.rxJava2Interop
+
+    compile baseDependencies.dagger
+    compile baseDependencies.javaxAnnotation
+
+    compile baseDependencies.gson
+    compile baseDependencies.okHttp
+    compile(baseDependencies.retrofit) {
+        exclude module: 'okhttp'
+    }
+    compile(baseDependencies.retrofitGsonConverter) {
+        exclude module: 'gson'
+    }
+    compile(baseDependencies.retrofitRxJava2Adapter) {
+        exclude module: 'rxjava2'
+    }
+
+    compile baseDependencies.timber
+    compile baseDependencies.okHttpLogging
+//    compile(baseDependencies.ok2Curl) {
+//        exclude module: 'okhttp'
+//    }
+    compile(baseDependencies.stethoOkhttp) {
+        exclude module: 'okhttp'
+        exclude module: 'jsr305'
+    }
+
 
     annotationProcessor aptDependencies.daggerApt
     annotationProcessor aptDependencies.butterKnifeApt
