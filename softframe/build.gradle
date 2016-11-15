@@ -46,6 +46,10 @@ dependencies {
 
     compile baseDependencies.dagger
     compile baseDependencies.javaxAnnotation
+    compile(baseDependencies.butterKnife) {
+        exclude module: 'support-annotations'
+    }
+    compile 'com.google.code.findbugs:jsr305:3.0.1'
 
     compile baseDependencies.gson
     compile baseDependencies.okHttp
@@ -69,9 +73,11 @@ dependencies {
         exclude module: 'jsr305'
     }
 
+    compile baseDependencies.autoBundle
 
     annotationProcessor aptDependencies.daggerApt
     annotationProcessor aptDependencies.butterKnifeApt
+    annotationProcessor aptDependencies.autoBundleApt
 
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
