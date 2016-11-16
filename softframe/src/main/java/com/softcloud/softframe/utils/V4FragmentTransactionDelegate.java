@@ -13,19 +13,17 @@ public class V4FragmentTransactionDelegate {
 
     private final List<FragmentTransaction> pendingTransactions;
     private final List<FragmentTransaction> finishedPendingTransactions;
-    private final ILifeCycleState.IResume transactionCommitter;
 
     private V4FragmentTransactionDelegate(ILifeCycleState.IResume transactionCommitter) {
         pendingTransactions = new ArrayList<>();
         finishedPendingTransactions = new ArrayList<>();
-        this.transactionCommitter = transactionCommitter;
     }
 
     public static V4FragmentTransactionDelegate create(ILifeCycleState.IResume transactionCommitter) {
         return new V4FragmentTransactionDelegate(transactionCommitter);
     }
 
-    public synchronized void commitOrPend(FragmentTransaction transaction) {
+    public synchronized void commitOrPend(FragmentTransaction transaction, ILifeCycleState.IResume transactionCommitter) {
         if (transactionCommitter.isResumed()) {
             transaction.commit();
         } else {
@@ -33,7 +31,7 @@ public class V4FragmentTransactionDelegate {
         }
     }
 
-    public synchronized void resumeTransactions() {
+    public synchronized void resumeTransactions(ILifeCycleState.IResume transactionCommitter) {
         for (FragmentTransaction transition : pendingTransactions) {
             if (transactionCommitter.isResumed()) {
                 transition.commit();
