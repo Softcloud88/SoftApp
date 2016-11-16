@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
@@ -74,10 +73,12 @@ dependencies {
     }
 
     compile baseDependencies.autoBundle
+    provided aptDependencies.autoValue
 
     annotationProcessor aptDependencies.daggerApt
     annotationProcessor aptDependencies.butterKnifeApt
     annotationProcessor aptDependencies.autoBundleApt
+
 
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
