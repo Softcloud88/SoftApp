@@ -16,6 +16,8 @@ ext {
     gsonVersion = '2.8.0'
     okHttpVersion = '3.4.1'
     retrofitVersion = '2.1.0'
+    timberVersion = '4.3.1'
+    ok2CurlVersion = 'master-SNAPSHOT'
 
     daggerVersion = '2.7'
     butterKnifeVersion = '8.4.0'
@@ -43,9 +45,9 @@ ext {
                     javaxAnnotation          : "org.glassfish:javax.annotation:10.0-b28",
                     butterKnife              : "com.jakewharton:butterknife:$butterKnifeVersion",
 
-                    timber                   : "com.jakewharton.timber:timber:4.3.1",
+                    timber                   : "com.jakewharton.timber:timber:$timberVersion",
                     okHttpLogging            : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
-//                    ok2Curl                  : 'com.github.mrmike:ok2curl:0.2.5',
+                    ok2Curl                  : "com.github.mrmike:ok2curl:$ok2CurlVersion",
                     stethoOkhttp             : "com.facebook.stetho:stetho-okhttp3:$stethoVersion",
                     autoBundle               : "com.github.yatatsu:autobundle:$autoBundleVersion",
 

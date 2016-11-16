@@ -64,9 +64,9 @@ dependencies {
 
     compile baseDependencies.timber
     compile baseDependencies.okHttpLogging
-//    compile(baseDependencies.ok2Curl) {
-//        exclude module: 'okhttp'
-//    }
+    compile(baseDependencies.ok2Curl) {
+        exclude module: 'okhttp'
+    }
     compile(baseDependencies.stethoOkhttp) {
         exclude module: 'okhttp'
         exclude module: 'jsr305'
