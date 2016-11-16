@@ -12,18 +12,16 @@ import java.util.List;
 public class V4FragmentTransactionDelegate {
 
     private final List<FragmentTransaction> pendingTransactions;
-    private final List<FragmentTransaction> finishedPendingTransactions;
 
     private V4FragmentTransactionDelegate(ILifeCycleState.IResume transactionCommitter) {
         pendingTransactions = new ArrayList<>();
-        finishedPendingTransactions = new ArrayList<>();
     }
 
     public static V4FragmentTransactionDelegate create(ILifeCycleState.IResume transactionCommitter) {
         return new V4FragmentTransactionDelegate(transactionCommitter);
     }
 
-    public synchronized void commitOrPend(FragmentTransaction transaction, ILifeCycleState.IResume transactionCommitter) {
+    public synchronized void safeCommit(FragmentTransaction transaction, ILifeCycleState.IResume transactionCommitter) {
         if (transactionCommitter.isResumed()) {
             transaction.commit();
         } else {
@@ -31,16 +29,10 @@ public class V4FragmentTransactionDelegate {
         }
     }
 
-    public synchronized void resumeTransactions(ILifeCycleState.IResume transactionCommitter) {
+    public synchronized void onResumed() {
         for (FragmentTransaction transition : pendingTransactions) {
-            if (transactionCommitter.isResumed()) {
-                transition.commit();
-                finishedPendingTransactions.add(transition);
-            } else {
-                break;
-            }
+            transition.commit();
         }
-        pendingTransactions.removeAll(finishedPendingTransactions);
-        finishedPendingTransactions.clear();
+        pendingTransactions.clear();
     }
 }
