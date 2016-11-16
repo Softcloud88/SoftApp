@@ -16,13 +16,25 @@ public abstract class BaseDiFragment<View extends IView, Presenter extends BaseP
 
     protected Presenter presenter;
 
-    @SuppressWarnings("unchecked")
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Component component = ((HasComponent<Component>) getActivity()).getComponent();
+        Component component = getOrInitComponent();
+        checkComponent(component);
         presenter = component.presenter();
         injectDependencies(component);
         super.onCreate(savedInstanceState);
+    }
+
+    @SuppressWarnings("unchecked")
+    private Component getOrInitComponent() {
+        Component component;
+        if (isComponentFromDiActivity() && getActivity() instanceof HasComponent) {
+            component = ((HasComponent<Component>) getActivity()).getComponent();
+        } else {
+            component = initComponent();
+        }
+        return component;
     }
 
     @NonNull
@@ -36,4 +48,27 @@ public abstract class BaseDiFragment<View extends IView, Presenter extends BaseP
      * Normally implementation should be {@code component.inject(this)}
      */
     protected abstract void injectDependencies(Component component);
+
+    /**
+     * if activity implement interface HasComponent the component is for the fragment,
+     * then set this true.
+     * @return
+     */
+    protected abstract boolean isComponentFromDiActivity();
+
+    /**
+     * if component is not from activity, need to init Component here.
+     * @return
+     */
+    protected Component initComponent() {
+        return null;
+    }
+
+    private void checkComponent(Component component) {
+        if (component == null) {
+            throw new IllegalStateException("component has not been init! " +
+                    "activity should implement interface HasComponent " +
+                    "or initComponent return non-null.");
+        }
+    }
 }
