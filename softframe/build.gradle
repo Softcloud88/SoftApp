@@ -42,14 +42,14 @@ dependencies {
     compile(baseDependencies.rxAndroid2) {
         exclude module: 'rxjava2'
     }
-    compile baseDependencies.rxJava2Interop
+    // compile baseDependencies.rxJava2Interop
 
     compile baseDependencies.dagger
     compile baseDependencies.javaxAnnotation
     compile(baseDependencies.butterKnife) {
         exclude module: 'support-annotations'
     }
-    compile 'com.google.code.findbugs:jsr305:3.0.1'
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
 
     compile baseDependencies.gson
     compile baseDependencies.okHttp
