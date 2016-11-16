@@ -2,6 +2,9 @@ package com.softcloud.softframe.utils;
 
 
 import android.support.v4.app.FragmentTransaction;
+
+import com.softcloud.softframe.basepages.ILifeCycleState;
+
 import java.util.ArrayList;
 import java.util.List;
 

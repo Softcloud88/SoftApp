@@ -13,7 +13,6 @@ import com.softcloud.softframe.di.BaseComponent;
 import com.softcloud.softframe.di.BaseDiFragment;
 import com.softcloud.softframe.mvp.BasePresenter;
 import com.softcloud.softframe.mvp.IView;
-import com.softcloud.softframe.utils.ILifeCycleState;
 import com.softcloud.softframe.utils.V4FragmentTransactionDelegate;
 import com.yatatsu.autobundle.AutoBundle;
 

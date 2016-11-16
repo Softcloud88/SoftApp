@@ -1,4 +1,4 @@
-package com.softcloud.softframe.utils;
+package com.softcloud.softframe.basepages;
 
 /**
  * Created by Softcloud{https://github.com/Softcloud88} on 2016/11/16.
