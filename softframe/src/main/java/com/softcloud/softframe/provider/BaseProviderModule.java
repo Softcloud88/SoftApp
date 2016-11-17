@@ -1,18 +1,18 @@
 package com.softcloud.softframe.provider;
 
-import com.facebook.stetho.okhttp3.StethoInterceptor;
-import com.moczul.ok2curl.CurlInterceptor;
-
-import java.util.Collection;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
-import timber.log.Timber;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Softcloud on 16/11/16.
@@ -23,7 +23,13 @@ public class BaseProviderModule {
 
     @Singleton
     @Provides
-    OkHttpClient provideOkHttpClient(OkHttpClientConfig config) {
+    Gson provideGson(final GsonBuilder builder) {
+        return builder.create();
+    }
+
+    @Singleton
+    @Provides
+    OkHttpClient provideOkHttpClient(final OkHttpClientConfig config) {
         final OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if (config.netInterceptors() != null) {
             for (Interceptor netInterceptor : config.netInterceptors()) {
@@ -36,5 +42,16 @@ public class BaseProviderModule {
             }
         }
         return builder.build();
+    }
+
+    @Singleton
+    @Provides
+    Retrofit provideRetrofit(final OkHttpClient okHttpClient, final Gson gson, final RetrofitConfig config) {
+        return new Retrofit.Builder()
+                .baseUrl(config.baseUrl())
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
+                .build();
     }
 }
