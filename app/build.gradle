@@ -13,6 +13,8 @@ android {
         versionCode rootProject.ext.releaseVersionCode
         versionName rootProject.ext.releaseVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "API_BASE_URL", "\"https://omgvamp-hearthstone-v1.p.mashape.com/\""
     }
 
     compileOptions {

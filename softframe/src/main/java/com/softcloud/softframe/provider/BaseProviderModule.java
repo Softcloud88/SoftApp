@@ -23,8 +23,14 @@ public class BaseProviderModule {
 
     @Singleton
     @Provides
-    Gson provideGson(final GsonBuilder builder) {
-        return builder.create();
+    Gson provideGson(final GsonConfig config) {
+        final GsonBuilder builder = new GsonBuilder();
+        if (config.autoGsonTypeAdapterFactory() != null) {
+            builder.registerTypeAdapterFactory(config.autoGsonTypeAdapterFactory());
+        }
+        return builder
+                .setPrettyPrinting()
+                .create();
     }
 
     @Singleton

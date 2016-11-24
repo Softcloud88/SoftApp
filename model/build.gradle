@@ -36,6 +36,7 @@ dependencies {
     provided(aptDependencies.autoGsonApt) {
         exclude module: 'auto-value'
     }
+
     annotationProcessor aptDependencies.daggerApt
     annotationProcessor(aptDependencies.autoParcelApt) {
         exclude module: 'auto-value'
