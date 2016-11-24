@@ -1,1 +1,1 @@
-include ':app', ':softframe'
+include ':app', ':softframe', ':model'

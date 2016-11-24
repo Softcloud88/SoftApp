@@ -33,7 +33,7 @@ dependencies {
     def aptDependencies = rootProject.ext.aptDependencies
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':softframe')
+    compile project(':model')
 
     compile baseDependencies.androidSupportAppCompatV7
 

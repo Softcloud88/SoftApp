@@ -112,8 +112,8 @@ ext {
             autoBundleApt      : "com.github.yatatsu:autobundle-processor:$autoBundleVersion",
             autoValue          : "com.google.auto.value:auto-value:1.3",
 
-//            autoParcelApt      : "com.ryanharter.auto.value:auto-value-parcel:0.2.5",
-//            autoGsonApt        : "com.ryanharter.auto.value:auto-value-gson:0.4.3",
+            autoParcelApt      : "com.ryanharter.auto.value:auto-value-parcel:0.2.5",
+            autoGsonApt        : "com.ryanharter.auto.value:auto-value-gson:0.4.3",
 
 //            onActivityResultApt: "com.vanniktech:onactivityresult-compiler:$onActivityResultVersion",
 //
