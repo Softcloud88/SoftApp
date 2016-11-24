@@ -45,7 +45,7 @@ public abstract class SoftActivity<View extends IView, Presenter extends BasePre
     }
 
     @Override
-    public boolean isResumed() {
+    public boolean isPageResumed() {
         return isResumed;
     }
 

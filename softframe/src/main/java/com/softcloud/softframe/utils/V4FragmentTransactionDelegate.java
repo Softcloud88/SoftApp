@@ -25,7 +25,7 @@ public class V4FragmentTransactionDelegate {
     }
 
     public synchronized void safeCommit(FragmentTransaction transaction, ILifeCycleState.IResume transactionCommitter) {
-        if (transactionCommitter.isResumed()) {
+        if (transactionCommitter.isPageResumed()) {
             transaction.commit();
         } else {
             pendingTransactions.add(transaction);

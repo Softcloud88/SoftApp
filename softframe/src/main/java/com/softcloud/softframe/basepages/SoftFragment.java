@@ -92,4 +92,9 @@ public abstract class SoftFragment<V extends IView, Presenter extends BasePresen
     protected abstract void setupView(View rootView, Bundle savedInstanceState);
 
     protected abstract void startBusiness();
+
+    @Override
+    public boolean isPageResumed() {
+        return isResumed();
+    }
 }

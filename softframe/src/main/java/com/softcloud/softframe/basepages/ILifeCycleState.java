@@ -7,27 +7,27 @@ package com.softcloud.softframe.basepages;
 public interface ILifeCycleState {
 
     interface ICreate {
-        boolean isCreated();
+        boolean isPageCreated();
     }
 
     interface IStart {
-        boolean isStarted();
+        boolean isPageStarted();
     }
 
     interface IResume{
-        boolean isResumed();
+        boolean isPageResumed();
     }
 
     interface IPause {
-        boolean isPaused();
+        boolean isPagePaused();
     }
 
     interface IStop {
-        boolean isStoped();
+        boolean isPageStoped();
     }
 
     interface IDestroy {
-        boolean isDestroyed();
+        boolean isPageDestroyed();
     }
 
 }
