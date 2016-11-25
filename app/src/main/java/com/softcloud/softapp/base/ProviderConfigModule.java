@@ -27,7 +27,7 @@ public class ProviderConfigModule {
     OkHttpClientConfig provideOkHttpClientConfig() {
         List<Interceptor> netInterceptors = new ArrayList<>();
         Collections.addAll(netInterceptors, new StethoInterceptor());
-        return OkHttpClientConfig.builder()
+        return OkHttpClientConfig.builder().setAppInterceptors(new ArrayList<>())
                 .setNetInterceptors(netInterceptors)
                 .setConnectionTimeOutSeconds(10)
                 .setReadTimeOutSeconds(10)

@@ -6,6 +6,7 @@ import com.softcloud.softframe.provider.BaseProviderModule;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import retrofit2.Retrofit;
 
 /**
  * Created by Softcloud on 16/11/24.
@@ -17,5 +18,5 @@ import dagger.Component;
         BaseProviderModule.class, ProviderConfigModule.class, GsonProviderConfigModule.class
 })
 public interface AppComponent {
-
+    Retrofit retrofit();
 }
