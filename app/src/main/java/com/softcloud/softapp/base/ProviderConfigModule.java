@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
 import okhttp3.Interceptor;
 
@@ -18,6 +19,7 @@ import okhttp3.Interceptor;
  * Created by Softcloud on 16/11/24.
  */
 
+@Module
 public class ProviderConfigModule {
 
     @Singleton
