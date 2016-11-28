@@ -1,5 +1,7 @@
 package com.softcloud.softframe.provider;
 
+import android.support.annotation.Nullable;
+
 import com.google.auto.value.AutoValue;
 
 import java.util.List;
