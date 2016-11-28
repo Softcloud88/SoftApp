@@ -1,6 +1,9 @@
 package com.softcloud.model;
 
 import com.google.auto.value.AutoValue;
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
+import com.softcloud.model.base.AllCardsModel;
 import com.softcloud.model.base.BaseData;
 
 import java.util.List;
@@ -26,4 +29,8 @@ public abstract class Card extends BaseData {
     public abstract String imgGold();
 
     public abstract String locale();
+
+    public static TypeAdapter<Card> typeAdapter(final Gson gson) {
+        return new AutoValue_Card.GsonTypeAdapter(gson);
+    }
 }
