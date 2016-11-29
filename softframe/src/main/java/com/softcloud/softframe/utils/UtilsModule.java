@@ -23,7 +23,13 @@ public class UtilsModule {
     @Singleton
     @Provides
     ToastUtils provideToastUtils() {
-        return new ToastUtilsImpl(context);
+        return new ToastUtils(context);
+    }
+
+    @Singleton
+    @Provides
+    ScreenUtils provideScreenUtils() {
+        return new ScreenUtils(context);
     }
 
 }
