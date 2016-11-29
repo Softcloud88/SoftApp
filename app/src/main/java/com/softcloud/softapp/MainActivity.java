@@ -9,7 +9,6 @@ import com.softcloud.model.HealthStoneApi;
 import com.softcloud.model.base.AllCardsModel;
 import com.softcloud.softapp.base.HealthStone100Application;
 
-import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import retrofit2.Retrofit;
@@ -32,19 +31,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void postRequest() {
-        Flowable<AllCardsModel> flowable = retrofit.create(HealthStoneApi.class)
+        retrofit.create(HealthStoneApi.class)
                 //.getAllCards("1", "true", "1", "", "1", "zhCN");
-                .getAllCards("1", "3", "zhCN");
-        flowable.observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<AllCardsModel>() {
-            @Override
-            public void accept(AllCardsModel allCardsModel) throws Exception {
-                Toast.makeText(MainActivity.this, "ok", Toast.LENGTH_SHORT).show();
-            }
-        }, new Consumer<Throwable>() {
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-                Toast.makeText(MainActivity.this, "fail", Toast.LENGTH_SHORT).show();
-            }
-        });
+                .getAllCards("1", "3", "zhCN")
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        new Consumer<AllCardsModel>() {
+                            @Override
+                            public void accept(AllCardsModel allCardsModel) throws Exception {
+                                Toast.makeText(MainActivity.this, "ok", Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                Toast.makeText(MainActivity.this, "fail", Toast.LENGTH_SHORT).show();
+                            }
+                        });
     }
 }
