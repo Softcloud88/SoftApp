@@ -1,5 +1,7 @@
 package com.softcloud.model.base;
 
+import android.support.annotation.Nullable;
+
 import com.google.auto.value.AutoValue;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
@@ -14,30 +16,31 @@ import java.util.List;
 
 @AutoValue
 public abstract class AllCardsModel extends BaseModel{
+    @Nullable
     public abstract List<Card> Basic();
-    public abstract List<Card> Classic();
-    public abstract List<Card> Promo();
-    public abstract List<Card> Reward();
-    public abstract List<Card> Naxxramas();
-    @SerializedName("Goblins vs Gnomes")
+    @Nullable public abstract List<Card> Classic();
+    @Nullable public abstract List<Card> Promo();
+    @Nullable public abstract List<Card> Reward();
+    @Nullable public abstract List<Card> Naxxramas();
+    @Nullable @SerializedName("Goblins vs Gnomes")
     public abstract List<Card> GoblinsVsGnomes();
-    @SerializedName("Blackrock Mountain")
+    @Nullable @SerializedName("Blackrock Mountain")
     public abstract List<Card> BlackrockMountain();
-    @SerializedName("The Grand Tournament")
+    @Nullable @SerializedName("The Grand Tournament")
     public abstract List<Card> TheGrandTournament();
-    @SerializedName("The League of Explorers")
+    @Nullable @SerializedName("The League of Explorers")
     public abstract List<Card> TheLeagueOfExplorers();
-    @SerializedName("Whispers of the Old Gods")
+    @Nullable @SerializedName("Whispers of the Old Gods")
     public abstract List<Card> WhispersOfTheOldGods();
-    public abstract List<Card> Karazhan();
-    @SerializedName("Tavern Brawl")
+    @Nullable public abstract List<Card> Karazhan();
+    @Nullable @SerializedName("Tavern Brawl")
     public abstract List<Card> TavernBrawl();
-    @SerializedName("Hero Skins")
+    @Nullable @SerializedName("Hero Skins")
     public abstract List<Card> HeroSkins();
-    public abstract List<Card> Missions();
-    public abstract List<Card> Credits();
-    public abstract List<Card> System();
-    public abstract List<Card> Debug();
+    @Nullable public abstract List<Card> Missions();
+    @Nullable public abstract List<Card> Credits();
+    @Nullable public abstract List<Card> System();
+    @Nullable public abstract List<Card> Debug();
 
 
     // TODO: 16/11/24 more lists to be add
