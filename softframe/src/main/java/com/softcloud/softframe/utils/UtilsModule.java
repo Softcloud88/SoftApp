@@ -32,4 +32,10 @@ public class UtilsModule {
         return new ScreenUtils(context);
     }
 
+    @Singleton
+    @Provides
+    ResHelper provideResHelper() {
+        return new ResHelper(context);
+    }
+
 }
