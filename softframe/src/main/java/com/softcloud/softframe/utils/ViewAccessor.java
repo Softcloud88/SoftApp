@@ -45,13 +45,13 @@ public class ViewAccessor {
         }
     }
 
-    private View getView(@IdRes int tvId) {
+    private View getView(@IdRes int vId) {
         checkRootView();
-        View v = rootView.findViewById(tvId);
+        View v = rootView.findViewById(vId);
         if (v != null) {
             return v;
         } else {
-            throw new ViewAccessorErrorStateException(String.format("None View found according to id %d", tvId));
+            throw new ViewAccessorErrorStateException(String.format("None View found according to id %d", vId));
         }
     }
 
