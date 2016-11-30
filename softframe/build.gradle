@@ -72,6 +72,10 @@ dependencies {
         exclude module: 'okhttp'
         exclude module: 'jsr305'
     }
+    compile(baseDependencies.sqlBrite) {
+        exclude module: 'support-annotations'
+        exclude module: 'rxjava'
+    }
 
     compile baseDependencies.autoBundle
     provided aptDependencies.autoValue

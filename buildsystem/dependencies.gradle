@@ -24,6 +24,8 @@ ext {
 
     autoBundleVersion = '3.1.1'
 
+    sqlDelightVersion = '0.5.1'
+
     // Developer
     stethoVersion = '1.4.1'
 
@@ -51,6 +53,9 @@ ext {
                     stethoOkhttp             : "com.facebook.stetho:stetho-okhttp3:$stethoVersion",
                     autoBundle               : "com.github.yatatsu:autobundle:$autoBundleVersion",
 
+                    sqlBrite                 : 'com.squareup.sqlbrite:sqlbrite:0.8.0',
+                    sqlDelightRuntime        : "com.squareup.sqldelight:runtime:$sqlDelightVersion",
+
 
 //                    safelyAndroid            : "com.github.piasy:safelyandroid:1.2.4",
 //
@@ -66,8 +71,7 @@ ext {
 
 //
 
-//                    sqlBrite                 : 'com.squareup.sqlbrite:sqlbrite:0.8.0',
-//                    sqlDelightRuntime        : "com.squareup.sqldelight:runtime:$sqlDelightVersion",
+
 //
 //                    threetenabp              : "com.jakewharton.threetenabp:threetenabp:1.0.4",
 //                    onActivityResult         : "com.vanniktech:onactivityresult:$onActivityResultVersion",
