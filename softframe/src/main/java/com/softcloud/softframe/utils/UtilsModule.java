@@ -38,4 +38,9 @@ public class UtilsModule {
         return new ResHelper(context);
     }
 
+    @Singleton
+    @Provides
+    ViewHelper provideViewHelper(ResHelper resHelper) {
+        return new ViewHelper(resHelper);
+    }
 }
