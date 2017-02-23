@@ -42,6 +42,12 @@ dependencies {
     compile(baseDependencies.rxAndroid2) {
         exclude module: 'rxjava2'
     }
+
+//    compile 'com.jakewharton.rxbinding:rxbinding:1.0.0'
+//    compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:1.0.0'
+//    compile 'com.jakewharton.rxbinding:rxbinding-design:1.0.0'
+//    compile 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:1.0.0'
+
     // compile baseDependencies.rxJava2Interop
 
     compile baseDependencies.dagger
