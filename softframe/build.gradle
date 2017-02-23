@@ -37,6 +37,8 @@ dependencies {
 
     compile baseDependencies.androidSupportAppCompatV7
 
+    compile baseDependencies.mosby
+
     retrolambdaConfig aptDependencies.retrolambda
     compile baseDependencies.rxJava2
     compile(baseDependencies.rxAndroid2) {
