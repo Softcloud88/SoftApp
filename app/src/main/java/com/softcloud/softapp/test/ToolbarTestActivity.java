@@ -30,7 +30,7 @@ public class ToolbarTestActivity extends AppCompatActivity {
 
     private void setupToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("");
+        toolbar.setTitle("TestTitle");
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -50,7 +50,7 @@ public class ToolbarTestActivity extends AppCompatActivity {
             }
             return true;
         });
-        
+
         toolbar.setNavigationOnClickListener(v -> Toast.makeText(ToolbarTestActivity.this, "nav !", Toast.LENGTH_SHORT).show());
     }
 }
