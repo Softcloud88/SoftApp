@@ -34,6 +34,7 @@ android {
 
 dependencies {
     def baseDependencies = rootProject.ext.baseDependencies
+    def appDependencies = rootProject.ext.appDependencies
     def aptDependencies = rootProject.ext.aptDependencies
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -46,6 +47,8 @@ dependencies {
     compile(baseDependencies.rxAndroid2) {
         exclude module: 'rxjava2'
     }
+
+    compile appDependencies.recyclerRefreshLayout
 
     annotationProcessor aptDependencies.daggerApt
     annotationProcessor aptDependencies.butterKnifeApt
