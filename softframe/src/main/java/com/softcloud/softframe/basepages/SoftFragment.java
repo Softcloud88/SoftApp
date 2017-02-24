@@ -33,8 +33,19 @@ public abstract class SoftFragment<V extends IView, Presenter extends BasePresen
 
     @CallSuper
     public void onCreate(Bundle savedInstanceState) {
-        AutoBundle.bind(this);
+        if (savedInstanceState != null) {
+            AutoBundle.bind(this, savedInstanceState);
+        } else {
+            AutoBundle.bind(this);
+        }
         super.onCreate(savedInstanceState);
+    }
+
+    @CallSuper
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        AutoBundle.pack(this, outState);
     }
 
     @Nullable
