@@ -36,6 +36,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     compile baseDependencies.androidSupportAppCompatV7
+    compile baseDependencies.androidSupportDesign
 
     compile baseDependencies.mosby
 

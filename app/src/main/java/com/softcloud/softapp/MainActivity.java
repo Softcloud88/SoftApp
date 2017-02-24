@@ -1,15 +1,18 @@
 package com.softcloud.softapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.softcloud.model.HealthStoneApi;
 import com.softcloud.model.base.AllCardsModel;
 import com.softcloud.softapp.base.HealthStone100Application;
+import com.softcloud.softapp.test.ToolbarTestActivity;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -61,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
         retrofit = HealthStone100Application.getAppComponent().retrofit();
         TextView tv = (TextView) findViewById(R.id.tv);
         tv.setOnClickListener((v) -> postRequest());
+
+        Button btn2Toolbar = (Button) findViewById(R.id.test_toolbar);
+        btn2Toolbar.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ToolbarTestActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void postRequest() {
